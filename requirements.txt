@@ -2,7 +2,7 @@ sentence-transformers
 transformers
 torch
 protobuf
-streamlit==1.25.0
+streamlit==1.32.0
 streamlit-chat==0.1.1
 PyPDF2==3.0.1
 python-docx==0.8.11
@@ -18,4 +18,3 @@ beautifulsoup4==4.12.2
 html2text==2020.1.16
 python-dotenv==1.0.0
 pydantic==1.10.12
-rich<14,>=10.14.0

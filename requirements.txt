@@ -27,9 +27,9 @@ Jinja2
 joblib
 jsonschema
 jsonschema-specifications
-langchain
-langchain_community
-langchain_openai
+langchain==0.0.354
+langchain_community==0.0.38
+langchain_openai==0.0.8
 langsmith
 lxml
 markdown-it-py
@@ -44,7 +44,7 @@ nltk
 numexpr
 numpy
 openai
-openapi-schema-pydantic<2.0.0
+openapi-schema-pydantic==1.10.12
 packaging
 pandas
 Pillow

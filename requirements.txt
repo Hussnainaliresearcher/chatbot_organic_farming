@@ -1,25 +1,27 @@
-# Existing pins
 streamlit==1.25.0
 streamlit-chat==0.1.1
+
+# Langchain and OpenAI
+langchain==0.0.251
+langchain-community==0.0.20
+langchain-openai==0.0.6
+openai==0.27.8
+
+# Embeddings and vector store
+sentence-transformers
+transformers
+torch==2.6.0
+faiss-cpu>=1.11,<2
+
+# PDF / Word parsing
 PyPDF2==3.0.1
 python-docx==0.8.11
-openai==0.27.8
-langchain==0.0.251
+
+# Helpers
 tqdm==4.65.0
 numpy==1.25.2
 requests==2.31.0
 beautifulsoup4==4.12.2
 html2text==2020.1.16
 python-dotenv==1.0.0
-
-# LLM + embeddings
-sentence-transformers
-transformers
-torch==2.6.0           # Python 3.13 compatible
-
-# Vector DB (FAISS)
-faiss-cpu>=1.11,<2     # fixes build crash with old 1.7.4
-
-# 🔥 ADD THESE TWO (fixes ModuleNotFoundError)
-langchain-community==0.0.20
-langchain-openai==0.0.6
+protobuf>=4.25

@@ -1,37 +1,20 @@
-# ─── UI ──────────────────────────────────────────
-streamlit==1.32.0
-streamlit-chat==0.1.1
-
-# ─── LangChain ecosystem ─────────────────────────
-langchain==0.1.20               # modern, still pydantic-1
-langchain-community==0.0.36     # gives `langchain_community.*`
-langchain-openai==0.0.6         # gives `langchain_openai.*`
-
-# ─── OpenAI SDK (+ its deps) ─────────────────────
-openai==1.29.0                  # last release that still uses pydantic-1
-pydantic==1.10.14               # required by langchain ≤ 0.1 & openai 1.29
-
-# ─── LLM / embeddings stack ──────────────────────
-torch==2.5.1                    # latest CPU wheel that exists today
-transformers==4.43.0
-sentence-transformers==3.4.0
-
-# ─── Vector store ────────────────────────────────
-faiss-cpu>=1.11,<2              # wheels for Py 3.9-3.13; no C++ build
-
-# ─── Data / parsing ──────────────────────────────
-pandas>=2.2
-openpyxl>=3.1                   # lets pandas read .xlsx
-PyPDF2==3.0.1
-python-docx==0.8.11
-
-# ─── Web-scraping helpers ────────────────────────
-requests>=2.31
-beautifulsoup4>=4.12
-html2text==2020.1.16
-
-# ─── Misc utils ──────────────────────────────────
-tqdm>=4.66
-numpy>=1.26
-protobuf>=4.25                  # needed by torch 2.5+
-python-dotenv>=1.0
+streamlit
+streamlit-chat
+langchain
+langchain-community
+langchain-openai
+openai
+torch       # will pull the newest CPU wheel (currently 2.6.0)
+transformers
+sentence-transformers
+faiss-cpu
+pandas
+openpyxl
+PyPDF2
+python-docx
+requests
+beautifulsoup4
+html2text
+tqdm
+numpy
+python-dotenv

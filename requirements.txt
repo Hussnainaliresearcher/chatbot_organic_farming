@@ -1,14 +1,23 @@
+# requirements.txt  ── minimum changes to get you running
+streamlit==1.25.0          # keep your pin
+streamlit-chat==0.1.1
+
+# LangChain stack
+langchain==0.0.251         # you already had this
+langchain-community==0.0.20
+langchain-openai==0.0.6
+
+# LLM / vector DB
+torch==2.6.0               # latest wheel that supports Py 3.13
+faiss-cpu>=1.11,<2         # 1.7.4 won't install on Py 3.12+  ❗
 sentence-transformers
 transformers
-torch
-protobuf
-streamlit==1.25.0
-streamlit-chat==0.1.1
+
+# Misc (unchanged)
+openai==0.27.8
+protobuf>=4.25             # avoids torch/protobuf clash
 PyPDF2==3.0.1
 python-docx==0.8.11
-openai==0.27.8
-langchain==0.0.251
-faiss-cpu==1.7.4
 tqdm==4.65.0
 numpy==1.25.2
 requests==2.31.0

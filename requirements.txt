@@ -44,7 +44,7 @@ nltk
 numexpr
 numpy
 openai
-openapi-schema-pydantic
+openapi-schema-pydantic<2.0.0
 packaging
 pandas
 Pillow

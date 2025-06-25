@@ -2,40 +2,16 @@ sentence-transformers
 transformers
 torch
 protobuf
-
-# ───────── Core app ─────────
-streamlit==1.32.0          # UI framework
-streamlit-chat==0.1.1      # chat component
-
-# ───────── LangChain stack ─────────
-langchain==0.1.20          # ⇧ newer bug-fix releases than 0.0.251
-langchain-community==0.0.20
-langchain-openai==0.0.6
-
-# ───────── OpenAI client ─────────
-openai>=1.29.0,<2          # required by langchain-openai
-
-# ───────── Embeddings / LLM back-end ─────────
-torch==2.6.0               # first release with Py 3.13 wheels
-transformers==4.43.0
-sentence-transformers==3.4.0
-
-# ───────── Vector store ─────────
-faiss-cpu>=1.11,<2         # 1.11+ has wheels for Py 3.13
-
-# ───────── Data handling ─────────
-pandas>=2.2
-openpyxl>=3.1              # lets pandas read .xlsx
+streamlit==1.25.0
+streamlit-chat==0.1.1
 PyPDF2==3.0.1
 python-docx==0.8.11
-
-# ───────── Web scraping helpers ─────────
-requests>=2.31
-beautifulsoup4>=4.12
+openai==0.27.8
+langchain==0.0.251
+faiss-cpu==1.7.4
+tqdm==4.65.0
+numpy==1.25.2
+requests==2.31.0
+beautifulsoup4==4.12.2
 html2text==2020.1.16
-
-# ───────── Misc utilities ─────────
-tqdm>=4.66
-numpy>=1.26
-protobuf>=4.25             # needed by torch 2.6
-python-dotenv>=1.0
+python-dotenv==1.0.0

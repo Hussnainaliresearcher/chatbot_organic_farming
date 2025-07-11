@@ -84,34 +84,31 @@ def scrape_web_store(query):
     # Get cached vectorstore
     vectorstore = load_or_create_vectorstore()
     
-    # Create source references
-    source_references = "www.pakorganic.com"
-    
-    # Define template
-    template = f"""You are a helpful assistant. Use the following web content as your primary reference to answer the user's question. If the answer is not clearly available, make a reasonable guess or summarize based on what is available. If you still cannot find anything useful, say: 'Sorry, this is out of my knowledge domain.'
+    # Define template with clickable source
+    template = """You are a helpful assistant. Use the following web content as your primary reference to answer the user's question. If the answer is not clearly available, make a reasonable guess or summarize based on what is available. If you still cannot find anything useful, say: 'Sorry, this is out of my knowledge domain.'
 
 Try to respond clearly, especially for questions like:
 - What are the available products?
 - Show product names and prices.
-- Give me a list of items sold.
+- Give me a list of items available.
 - Location and contact information.
 
-Always add: Source: {source_references}
+Always add this at the end (in HTML): <br><br>Source: <a href='https://www.pakorganic.com' target='_blank'>www.pakorganic.com</a>
 
-Context: {{context}}
-Question: {{question}}
+Context: {context}
+Question: {question}
 
 Answer:"""
     
     # Create prompt and QA chain
     prompt = PromptTemplate(template=template, input_variables=["context", "question"])
     
-    llm = ChatOpenAI(temperature=0, model='gpt-3.5-turbo', max_tokens=200)
+    llm = ChatOpenAI(temperature=0, model='gpt-4-turbo', max_tokens=200)
     
     qa_chain = RetrievalQA.from_chain_type(
         llm=llm,
         chain_type="stuff",
-        retriever=vectorstore.as_retriever(search_kwargs={"k": 10}),  # Reduced from 4 to 3
+        retriever=vectorstore.as_retriever(search_kwargs={"k": 10}),
         chain_type_kwargs={"prompt": prompt},
         return_source_documents=False
     )

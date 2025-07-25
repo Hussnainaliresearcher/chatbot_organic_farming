@@ -38,7 +38,6 @@ def inject_custom_css():
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                min-height: 140px;
             }
 
             .header-content {
@@ -80,8 +79,7 @@ def inject_custom_css():
             .header-logo {
                 height: 100px;
                 width: auto;
-                max-width: 180px;
-                min-width: 120px;
+                max-width: 120px;
                 object-fit: contain;
                 margin-left: 20px;
                 border-radius: 8px;
@@ -89,7 +87,7 @@ def inject_custom_css():
             }
 
             .main-content {
-                margin-top: 180px;
+                margin-top: 160px;
                 padding: 0 2rem;
             }
 
@@ -135,12 +133,8 @@ def inject_custom_css():
             }
 
             .avatar {
-                font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji", "Android Emoji", "EmojiSymbols", sans-serif;
                 font-size: 26px;
                 margin: 4px 10px;
-                -webkit-font-feature-settings: "liga" off, "clig" off;
-                font-feature-settings: "liga" off, "clig" off;
-                text-rendering: optimizeLegibility;
             }
 
             .timestamp {
@@ -191,13 +185,12 @@ def inject_custom_css():
                     padding: 1.5rem 1rem;
                 }
                 .header-logo {
-                    height: 90px;
+                    height: 60px;
                     margin-left: 0;
                     margin-top: 10px;
-                    min-width: 90px;
                 }
                 .main-content {
-                    margin-top: 220px;
+                    margin-top: 200px;
                     padding: 0 1rem;
                 }
                 .chat-container {

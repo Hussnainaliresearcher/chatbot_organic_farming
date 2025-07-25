@@ -7,6 +7,15 @@ from datetime import datetime
 import time
 import random
 import textwrap
+import base64
+
+def get_base64_of_bin_file(bin_file):
+    """
+    Convert PNG file to base64 string
+    """
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
 
 def inject_custom_css():
     st.markdown("""
@@ -26,6 +35,14 @@ def inject_custom_css():
                 box-shadow: 0 2px 6px rgba(0,0,0,0.1);
                 border-radius: 0 0 12px 12px;
                 width: auto;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                min-height: 140px;
+            }
+
+            .header-content {
+                flex: 1;
             }
 
             .fixed-header h1 {
@@ -60,8 +77,19 @@ def inject_custom_css():
                 user-select: none;
             }
 
+            .header-logo {
+                height: 100px;
+                width: auto;
+                max-width: 180px;
+                min-width: 120px;
+                object-fit: contain;
+                margin-left: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+
             .main-content {
-                margin-top: 160px;
+                margin-top: 180px;
                 padding: 0 2rem;
             }
 
@@ -107,8 +135,12 @@ def inject_custom_css():
             }
 
             .avatar {
+                font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji", "Android Emoji", "EmojiSymbols", sans-serif;
                 font-size: 26px;
                 margin: 4px 10px;
+                -webkit-font-feature-settings: "liga" off, "clig" off;
+                font-feature-settings: "liga" off, "clig" off;
+                text-rendering: optimizeLegibility;
             }
 
             .timestamp {
@@ -154,14 +186,26 @@ def inject_custom_css():
                     right: 0;
                     width: 100%;
                     border-radius: 0;
+                    flex-direction: column;
+                    text-align: center;
+                    padding: 1.5rem 1rem;
+                }
+                .header-logo {
+                    height: 90px;
+                    margin-left: 0;
+                    margin-top: 10px;
+                    min-width: 90px;
                 }
                 .main-content {
-                    margin-top: 180px;
+                    margin-top: 220px;
                     padding: 0 1rem;
                 }
                 .chat-container {
                     max-width: 100%;
                     font-size: 15px;
+                }
+                .fixed-header h1 {
+                    font-size: 28px;
                 }
             }
         </style>
@@ -184,18 +228,29 @@ def render_chat_message(role, content, timestamp):
     """, unsafe_allow_html=True)
 
 def render_fixed_header():
-    st.markdown("""
+    # Convert logo to base64
+    try:
+        logo_base64 = get_base64_of_bin_file("images.png")
+        logo_html = f'<img src="data:image/png;base64,{logo_base64}" class="header-logo" alt="Organization Logo">'
+    except FileNotFoundError:
+        # Fallback if logo file is not found
+        logo_html = '<div class="header-logo" style="background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #666;">LOGO</div>'
+    
+    st.markdown(f"""
         <div class="fixed-header">
-            <h1> 🌱 AI-Powered Chatbot 🤖 for Organic Farming in Pakistan🌿</h1>
-            <div class="tag-label">Ask Questions About:</div>
-            <div class="tag-strip">
-                <span class="tag-pill">Organic Farming</span>
-                <span class="tag-pill">Major Crops</span>
-                <span class="tag-pill">Soil Types</span>
-                <span class="tag-pill">Climate</span>
-                <span class="tag-pill">Rain Fall</span>
-                <span class="tag-pill">Pakistan Context</span>
+            <div class="header-content">
+                <h1> 🌱 AI-Powered Chatbot 🤖 for Organic Farming in Pakistan🌿</h1>
+                <div class="tag-label">Ask Questions About:</div>
+                <div class="tag-strip">
+                    <span class="tag-pill">Organic Farming</span>
+                    <span class="tag-pill">Major Crops</span>
+                    <span class="tag-pill">Soil Types</span>
+                    <span class="tag-pill">Climate</span>
+                    <span class="tag-pill">Rain Fall</span>
+                    <span class="tag-pill">Pakistan Context</span>
+                </div>
             </div>
+            {logo_html}
         </div>
     """, unsafe_allow_html=True)
 

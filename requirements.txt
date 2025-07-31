@@ -26,3 +26,4 @@ pyproj                  # For coordinate reference systems
 rtree                   # Optional but helps with spatial joins (used in geopandas)
 streamlit-folium
 geopy
+streamlit-javascript

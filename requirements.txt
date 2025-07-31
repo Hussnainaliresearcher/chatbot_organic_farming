@@ -18,3 +18,10 @@ html2text
 tqdm
 numpy
 python-dotenv
+folium                  # For rendering maps in Streamlit
+geopandas               # To work with GeoJSON & spatial data
+shapely                 # Required by geopandas for geometry operations
+fiona                   # For reading shapefiles (if ever needed)
+pyproj                  # For coordinate reference systems
+rtree                   # Optional but helps with spatial joins (used in geopandas)
+streamlit-folium
